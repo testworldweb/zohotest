@@ -6,9 +6,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
-
+/**
+ * Using WebDriver to test google search page 
+ * @author testworldweb
+ *
+ */
 public class WebDriverExample {
-	
+	/**
+	 * Open google search page 
+	 * Type the search query, and verify that the page title  contains the search term 
+	 * @throws InterruptedException
+	 */
 	 @Test
 	 public void testGoogleSearch() throws InterruptedException
 	 {

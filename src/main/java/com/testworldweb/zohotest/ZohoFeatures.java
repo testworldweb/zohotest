@@ -13,10 +13,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
+/**
+ * Supports various features(usecases) of Zoho  
+ * @author testworldweb
+ *
+ */
 public class ZohoFeatures {
 	
-	 
+	/**
+	 * Logins in as the user userUniqueName
+	 * Posts a status update 
+	 * Post Content is " Post by ${userUniqueName} through script at ${currentTimeStamp()};
+	 * @param userUniqueName : name of the user 
+	 * @return Post Content , ie the content posted on users wall
+	 * @throws InterruptedException
+	 */
 	public static String postByUser(String userUniqueName) throws InterruptedException {
 	
 		HashMap<String,UserDetails> hm=new HashMap<String,UserDetails>();
@@ -67,13 +78,23 @@ public class ZohoFeatures {
 	        driver.quit();
 	        return postContent;
 	    }
-	
+	/**
+	 * @return returns the current timestamp
+	 */
   public static String currentTimeStamp()
   {
 	  DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	  Date date = new Date();
 	  return (dateFormat.format(date).toString()); 
   }
+  /**
+   * returns true or false based on whether the textToSearch was found 
+   * in the feed of user userUniqueName
+   * @param userUniqueName , the user name whose feed is to be searched
+   * @param textToSearch , textToSearch in the user feed 
+   * @return returns true or false on whether the search term was found in the user feed
+   * @throws InterruptedException
+   */
   public static boolean textfoundOnUserFeed(String userUniqueName,String textToSearch) throws InterruptedException
   {
 	HashMap<String,UserDetails> hm=new HashMap<String,UserDetails>();
@@ -117,6 +138,11 @@ public class ZohoFeatures {
 
 	  
   }
+  /**
+   * Initializes the user details of all users from user.properties file 
+   * @param hm : The Hashmap to initialise
+   * @return initialized hashmap
+   */
   public static HashMap<String,UserDetails> populateUserData(HashMap<String,UserDetails> hm)
   {
 	  Properties prop = new Properties();
